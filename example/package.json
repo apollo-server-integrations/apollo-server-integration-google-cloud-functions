@@ -1,0 +1,34 @@
+{
+  "name": "apollo-server-integration-google-cloud-functions-example",
+  "version": "0.0.0",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "author": {
+    "name": "Ernesto Resende",
+    "email": "dev@ernestoresende.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run with-env node esbuild.mjs",
+    "watch": "NODE_ENV=development npm run with-env node esbuild.mjs",
+    "start": "dotenv -e .env -- functions-framework --source=./dist",
+    "deploy-gcp": "gcloud functions deploy $(grep CLOUD_FUNCTION_NAME .env | cut -d '=' -f2) --gen2 --runtime nodejs16 --trigger-http --allow-unauthenticated --entry-point=$(grep CLOUD_FUNCTION_NAME .env | cut -d '=' -f2) --source=./dist --region=us-central1",
+    "clean": "rimraf dist",
+    "with-env": "dotenv -e .env --"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.3.0",
+    "@apollo/utils.withrequired": "^2.0.0",
+    "@google-cloud/functions-framework": "3.1.2",
+    "@as-integrations/google-cloud-functions": "file:..",
+    "graphql": "^16.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "dotenv-cli": "^6.0.0",
+    "esbuild": "0.16.11",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  }
+}

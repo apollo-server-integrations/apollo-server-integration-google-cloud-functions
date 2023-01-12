@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "target": "ES6",
+    "module": "CommonJS",
+    "lib": ["ESNext"],
+    "noFallthroughCasesInSwitch": true,
+    "declaration": true,
+    "outDir": "dist",
+    "strict": true,
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "./node_modules/**/*",
+    "./dist/**/*"
+  ]
+}

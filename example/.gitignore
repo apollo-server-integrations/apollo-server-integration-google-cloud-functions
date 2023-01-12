@@ -1,0 +1,7 @@
+# Bundle outputs
+dist
+
+# Environment variables
+.env
+
+package-lock.json
