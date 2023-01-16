@@ -41,11 +41,11 @@ const server = new ApolloServer({
   typeDefs,
 });
 
-startServerAndCreateGoogleCloudFunctionsHandler(server, { functionName: "apollo-graphql" });
+startServerAndCreateGoogleCloudFunctionsHandler(server, { functionTarget: "apollo-graphql" });
 ```
 
 ## Example project 
-To develop, test and deploy your function, we recommend that you setup proper tooling to bundle your function and its dependencies. The project example gives you an starting point on how you can correctly bundle your function using esbuild and setup scripts for common tasks.
+To develop, test and deploy your function, we recommend that you setup proper tooling to bundle your function and its dependencies. [The project example]() gives you an starting point on how you can correctly bundle your function using esbuild and setup scripts for common tasks.
 
 >**Note**
 > ### Why do I need to bundle my function?
