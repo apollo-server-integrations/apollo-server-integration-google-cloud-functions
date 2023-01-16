@@ -38,5 +38,5 @@ const server = new ApolloServer({
 });
 
 startServerAndCreateGoogleCloudFunctionsHandler(server, {
-  functionName: process.env.FUNCTION_TARGET as string,
+  functionTarget: process.env.FUNCTION_TARGET as string,
 });
