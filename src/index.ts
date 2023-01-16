@@ -1,38 +1,36 @@
-import {
-  ApolloServer,
-  BaseContext,
-  ContextFunction,
-  HeaderMap,
-} from '@apollo/server';
+import { ApolloServer, BaseContext, ContextFunction, HeaderMap } from '@apollo/server';
 import { parse } from 'url';
-import { http, type HttpFunction } from '@google-cloud/functions-framework';
+import { http } from '@google-cloud/functions-framework';
+
+import type { Request, Response, HttpFunction } from '@google-cloud/functions-framework';
 import type { WithRequired } from '@apollo/utils.withrequired';
 
 interface Options<Context extends BaseContext> {
   context?: ContextFunction<Parameters<HttpFunction>, Context>;
-  functionName: string;
+  functionTarget: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type GoogleCloudApiHandler = (req: Request, res: Response) => Promise<unknown> | unknown;
+
 const defaultContext: ContextFunction<[], any> = async () => ({});
 
 export function startServerAndCreateGoogleCloudFunctionsHandler(
   server: ApolloServer<BaseContext>,
   options: Options<BaseContext>,
-): any;
-export function startServerAndCreateGoogleCloudFunctionsHandler<
-  Context extends BaseContext,
->(
+): void;
+export function startServerAndCreateGoogleCloudFunctionsHandler<Context extends BaseContext>(
   server: ApolloServer<Context>,
   options: WithRequired<Options<Context>, 'context'>,
-): any;
-export function startServerAndCreateGoogleCloudFunctionsHandler<
-  Context extends BaseContext,
->(server: ApolloServer<Context>, options: Options<Context>) {
+): void;
+export function startServerAndCreateGoogleCloudFunctionsHandler<Context extends BaseContext>(
+  server: ApolloServer<Context>,
+  options: Options<Context>,
+) {
   server.startInBackgroundHandlingStartupErrorsByLoggingAndFailingAllRequests();
 
   const contextFunction = options?.context || defaultContext;
-  const handler = http(options.functionName, async (req, res) => {
+
+  const handler: GoogleCloudApiHandler = async (req, res) => {
     const headers = new HeaderMap();
 
     for (const [key, value] of Object.entries(req.headers)) {
@@ -61,7 +59,7 @@ export function startServerAndCreateGoogleCloudFunctionsHandler<
       }
       res.end();
     }
-  });
+  };
 
-  return handler;
+  http(options.functionTarget, handler);
 }
