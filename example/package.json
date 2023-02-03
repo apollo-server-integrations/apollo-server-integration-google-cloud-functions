@@ -19,8 +19,8 @@
   "dependencies": {
     "@apollo/server": "^4.3.0",
     "@apollo/utils.withrequired": "^2.0.0",
-    "@google-cloud/functions-framework": "^3.1.3",
     "@as-integrations/google-cloud-functions": "file:..",
+    "@google-cloud/functions-framework": "^3.1.3",
     "graphql": "^16.6.0"
   },
   "devDependencies": {
