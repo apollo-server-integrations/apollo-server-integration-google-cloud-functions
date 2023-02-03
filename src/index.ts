@@ -61,5 +61,5 @@ export function startServerAndCreateGoogleCloudFunctionsHandler<Context extends 
     }
   };
 
-  http(options.functionTarget, handler);
+  return http(options.functionTarget, handler);
 }
