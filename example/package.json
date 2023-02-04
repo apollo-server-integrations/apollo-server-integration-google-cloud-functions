@@ -9,10 +9,10 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "npm run with-env node esbuild.mjs",
-    "watch": "NODE_ENV=development npm run with-env node esbuild.mjs",
+    "build": "npm run with-env node scripts/build.mjs",
+    "watch": "npm run with-env node scripts/watch.mjs",
     "start": "dotenv -e .env -- functions-framework --source=./dist",
-    "deploy-gcp": "gcloud functions deploy $(grep CLOUD_FUNCTION_NAME .env | cut -d '=' -f2) --gen2 --runtime nodejs16 --trigger-http --allow-unauthenticated --entry-point=$(grep CLOUD_FUNCTION_NAME .env | cut -d '=' -f2) --source=./dist --region=us-central1",
+    "deploy": "gcloud functions deploy $(grep FUNCTION_TARGET .env | cut -d '=' -f2) --gen2 --runtime nodejs16 --trigger-http --allow-unauthenticated --entry-point=$(grep FUNCTION_TARGET .env | cut -d '=' -f2) --source=./dist --region=us-central1",
     "clean": "rimraf dist",
     "with-env": "dotenv -e .env --"
   },
