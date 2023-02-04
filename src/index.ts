@@ -14,6 +14,17 @@ type GoogleCloudApiHandler = (req: Request, res: Response) => Promise<unknown> |
 
 const defaultContext: ContextFunction<[], any> = async () => ({});
 
+/**
+ * Creates a Google Cloud Functions handler for an `ApolloServer` instance.
+ *
+ * `startServerAndCreateGoogleCloudFunctionsHandler` requires a `functionTarget` string to be passed on the options object. The value of this string will be used to name the function entry point on Google Cloud Functions.
+ *
+ * @example
+ *
+ * startServerAndCreateGoogleCloudFunctionsHandler(server, {
+ *   functionTarget: 'my-function-name',
+ * });
+ */
 export function startServerAndCreateGoogleCloudFunctionsHandler(
   server: ApolloServer<BaseContext>,
   options: Options<BaseContext>,

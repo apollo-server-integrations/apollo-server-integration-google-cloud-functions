@@ -8,6 +8,7 @@ A simple Apollo Server integration for use with Google Cloud Functions
 - **[GraphQL.js v16](https://graphql.org/graphql-js/)** or later.
 - **[Apollo Server v4](https://www.apollographql.com/docs/apollo-server/)** or later.
 - **[Google Cloud Functions Framework v3]()** or later.
+- **[Google Cloud CLI Tool](https://cloud.google.com/sdk/gcloud)** (for deployments from a local machine).
 
 ## Installation
 ```bash
@@ -45,10 +46,14 @@ startServerAndCreateGoogleCloudFunctionsHandler(server, { functionTarget: "apoll
 ```
 
 ## Example project 
-To develop, test and deploy your function, we recommend that you setup proper tooling to bundle your function and its dependencies. [The project example]() gives you an starting point on how you can correctly bundle your function using esbuild and setup scripts for common tasks.
+To develop, test and deploy your function, you will need to setup proper tooling to bundle your function and its dependencies.
+
+We highly recommend taking a look at the [the project example](/example), which gives you an good starting point and sane defaults on how you can correctly bundle your function using `esbuild` and setup scripts for common development tasks.
 
 >**Note**
 > ### Why do I need to bundle my function?
-> You're probably writing your function in TypeScript, and you're probably using modern syntax from ES Modules like `import` and `export`. Google Cloud Functions Framework for Node.js does not support TypeScript, and it does not understand ES Modules, which is why they need to be properly bundled and transformed to CommonJS before they can be deployed on Google Cloud Functions. The example above gives you good defaults that you can adopt for your project.
+> You're probably writing your function in TypeScript, and you're probably using modern syntax from ES Modules like `import` and `export`. Google Cloud Functions Framework for Node.js does not support TypeScript, and it does not understand ES Modules.
+>
+> Futhermore, Google Cloud Functions works by having an entry point signature supplied to the function handler. This means that the final bundle of code that gets uploaded to Google Cloud Functions needs to visibly have the function entry point, otherwise it will fail with the error: `Function <function-name> is not defined in the provided module...`.
 
 
