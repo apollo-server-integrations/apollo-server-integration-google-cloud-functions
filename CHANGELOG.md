@@ -1,5 +1,12 @@
 # @as-integrations/google-cloud-functions
 
+## [0.1.3](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/compare/v0.1.2...v0.1.3) (2023-02-06)
+
+
+### 🧹 Miscellaneous
+
+* **deps:** remove private field from package.json ([8fe4b45](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/commit/8fe4b456fd7b39b33bc0305761ab27413daedf23))
+
 ## [0.1.2](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/compare/v0.1.1...v0.1.2) (2023-02-06)
 
 
