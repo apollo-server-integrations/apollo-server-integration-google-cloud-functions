@@ -1,5 +1,12 @@
 # @as-integrations/google-cloud-functions
 
+## [0.1.1](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/compare/v0.1.0...v0.1.1) (2023-02-06)
+
+
+### 🧹 Miscellaneous
+
+* **deps:** add pnpm lockfile ([56dd7fd](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/commit/56dd7fd5fbb1d8c40d4ee8fde5e9b9e14c84059e))
+
 ## 0.1.0 (2023-02-06)
 
 
