@@ -1,5 +1,12 @@
 # @as-integrations/google-cloud-functions
 
+## [0.1.4](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/compare/v0.1.3...v0.1.4) (2023-02-06)
+
+
+### 🧹 Miscellaneous
+
+* **main:** release 0.1.4 ([082886b](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/commit/082886b2f8f7f895ab589e8ac9bcc78b854363fe))
+
 ## [0.1.3](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/compare/v0.1.2...v0.1.3) (2023-02-06)
 
 
