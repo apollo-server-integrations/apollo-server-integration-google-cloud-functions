@@ -2,7 +2,7 @@
   "name": "@as-integrations/google-cloud-functions",
   "private": true,
   "description": "An integration to use Google Cloud Functions as a hosting service with Apollo Server",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": {
     "name": "Ernesto Resende",
     "email": "dev@ernestoresende.com"

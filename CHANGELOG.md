@@ -1,5 +1,12 @@
 # @as-integrations/google-cloud-functions
 
+## [0.1.2](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/compare/v0.1.1...v0.1.2) (2023-02-06)
+
+
+### 🧹 Miscellaneous
+
+* **deps:** enforce auto-install of peer deps on pnpm ([4c489a7](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/commit/4c489a7d03241442ac74d8050d8751fd5bbb8b1d))
+
 ## [0.1.1](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/compare/v0.1.0...v0.1.1) (2023-02-06)
 
 
