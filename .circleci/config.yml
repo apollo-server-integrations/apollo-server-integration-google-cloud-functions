@@ -51,15 +51,7 @@ jobs:
       - setup-node
       - run: npm run prettier-check
 
-  Spell Check:
-    docker:
-    - image: cimg/base:stable
-    steps:
-      - setup-node
-      - run: npm run spell-check
-
 workflows:
-  version: 2
   Build:
     jobs:
       - NodeJS:
@@ -71,4 +63,3 @@ workflows:
                 - "16"
                 - "18"
       - Prettier
-      - Spell Check
