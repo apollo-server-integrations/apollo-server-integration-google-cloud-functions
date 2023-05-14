@@ -1,15 +1,11 @@
 import { ApolloServer } from '@apollo/server';
-import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
-import { startServerAndCreateGoogleCloudFunctionsHandler } from '@as-integrations/google-cloud-functions';
+import type { Request, Response } from '@google-cloud/functions-framework';
+import { requestProxy, responseProxy, httpGraphQLResponse } from '@as-integrations/google-cloud-functions';
 
 const books = [
   {
     title: 'The Awakening',
     author: 'Kate Chopin',
-  },
-  {
-    title: 'City of Glass',
-    author: 'Paul Auster',
   },
 ];
 
@@ -33,10 +29,12 @@ const resolvers = {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  introspection: true,
-  plugins: [ApolloServerPluginLandingPageLocalDefault({ footer: false })],
 });
 
-startServerAndCreateGoogleCloudFunctionsHandler(server, {
-  functionTarget: process.env.FUNCTION_TARGET as string,
-});
+server.start();
+
+export async function handler(req: Request, res: Response) {
+  const httpGraphQLRequest = requestProxy(req);
+  const graphQLResponse = await httpGraphQLResponse(server, httpGraphQLRequest);
+  await responseProxy(res, graphQLResponse);
+}

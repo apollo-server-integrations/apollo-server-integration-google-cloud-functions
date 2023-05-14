@@ -1,13 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "sourceMap": true,
+    "sourceMap": false,
     "moduleResolution": "node",
-    "target": "ES6",
+    "target": "ESNext",
     "module": "CommonJS",
-    "lib": ["ESNext"],
     "noFallthroughCasesInSwitch": true,
-    "declaration": true,
+    "declaration": false,
     "outDir": "dist",
     "strict": true,
     "noImplicitAny": false,
