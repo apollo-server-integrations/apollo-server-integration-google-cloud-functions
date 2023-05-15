@@ -1,4 +1,4 @@
-# Boilerplate for Apollo Server projects using `@as-integrations/google-cloud-functions` for Google Cloud Function deployments
+# Example project for Apollo Server using `@as-integrations/google-cloud-functions` for Google Cloud Function deployments
 
 This example project comes pre-configured with sane defaults for tooling that you can use to deploy Apollo Server on Google Cloud Functions.
 
@@ -10,31 +10,19 @@ Install dependencies with the package manager of your choice:
 npm install
 ```
 
-Copy the `.env.example` file and set the environment variables:
+Build your project:
 
 ```bash
-# Copy the example .env file to your local .env
-cp .env.example .env
+npm build
 ```
 
-Edit the `FUNCTION_TARGET` on the `.env` file to match the name of your function. This is used to name both your function entry point on the bundled output, and the deployment.
-
-Start and test the development server:
-
-On a terminal instance, start the bundler on watch mode for your project:
-```bash
-npm run watch
-```
-
-On another terminal instance, start the Google Cloud Functions Framework CLI tool:
+Test your project on the Google Cloud Framework development server:
 ```bash
 npm run start
 ```
 
-> **Warning**
-> While the bundler can watch for file changes on your project and rebuild accordingly, Google Cloud Functions Framework unfortunately doesn't support hot reloading. You will need to restart the CLI tool every time you make a change to the project.
 
-The start script will build the project into a bundle usable by Google Cloud Functions and start a local development server using the `@google-cloud/functions-framework` package provided for Node.js runtimes. The server will be available at `http://localhost:8080`, and will run with an Apollo Server Playground where you can test your queries.
+This will build the project into a bundle usable by Google Cloud Functions and start a local development server using the `@google-cloud/functions-framework` package provided for Node.js runtimes. The server will be available at `http://localhost:8080`, and will run with an Apollo Server Playground where you can test your queries.
 
 ## Deployment
 
@@ -49,9 +37,7 @@ The project is configured to be deployed to Google Cloud Functions trough the Go
 npm run deploy
 ```
 
-To use the provided deploy script, you need to have the Google Cloud CLI Tool installed and configured on your machine. You can find more information about the CLI Tool [here](https://cloud.google.com/sdk/gcloud).
-
-The script will use the bundled output from the `/dist` directory, and name your function using the provided string on the `FUNCTION_TARGET` environment variable.
+To use the provided deploy script, you need to have the Google Cloud CLI Tool installed and configured on your machine. You can find more information about the CLI Tool [here](https://cloud.google.com/sdk/gcloud). The script will use the bundled output from the `/dist` directory.
 
 > **Note**
 > The deploy script currently uses POSIX compliant commands, and **will not work on Windows** (I encourage you to file an issue and/or open a pull request if you can help me solve this). If you're using Windows, you can use the `gcloud` CLI tool directly to deploy your function, and change the correct flags accordingly.
@@ -62,20 +48,14 @@ The script will use the bundled output from the `/dist` directory, and name your
 > gcloud functions deploy <function-name> --runtime nodejs16 --trigger-http --allow-unauthenticated --entry-point=<function-name> --source=./dist
 > ```
 >
-> Beware that the `--entry-point` flag should match the name provided in the `FUNCTION_TARGET` environment variable.
+> Beware that the `--entry-point` flag should match the name of the function handler exported on the main file of the server application.
 
 ## FAQ
 
-### I got an error `Expected value for define "process.env.FUNCTION_TARGET" to be a string, got undefined instead` when trying to build my function:
-
-This error is caused by the absence of the `FUNCTION_TARGET` environment variable. Make sure you have the `FUNCTION_TARGET` environment variable set on your `.env`, or otherwise, supplied to your running Node process.
-
 ### I got an error `Provided code is not a loadable module` when trying to run the `start` command:
 
-You'll get this error when there is no bundled output on the `/dist` directory. Make sure to run the `build` or `watch` command before running the `start` command.
+You'll get this error when there is no bundled output on the `/dist` directory. Make sure to run the `build` command before running the `start` command.
 
 ### I got an error `Function <function-name> is not defined in the provided module...` when trying to run/deploy my function:
 
-This will usually happen when the bundled code does not include `@as-integrations/google-cloud-functions` source code on the final bundle. **It is important to have the source-code for the integration bundled *within* your function** because of how Google Cloud Functions reads the function entry point.
-
-In `scripts/buildConfig.mjs`, make sure that the `external` array **does not** include `@as-integrations/google-cloud-functions`. Every other direct dependency that can be normally resolved by package.json should be included on the `external` array.
+The value of `--target` and `--entry-point` flags, on the `start` and `deploy` scripts, respective, should match the name of the function you export from the main file of your app. By default it is named `handler`.
