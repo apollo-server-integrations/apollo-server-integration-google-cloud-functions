@@ -2,18 +2,29 @@
   "name": "@as-integrations/google-cloud-functions",
   "description": "An integration to use Google Cloud Functions as a hosting service with Apollo Server",
   "version": "0.1.4",
+  "type": "module",
   "author": {
     "name": "Ernesto Resende",
     "email": "dev@ernestoresende.com"
   },
   "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "module": "./dist/index.js",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    }
+  },
   "files": [
     "dist/**/*"
   ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "module": "dist/index.js",
   "scripts": {
-    "build": "tsc --build tsconfig.json",
+    "build": "tsup src/index.ts --dts --sourcemap --format esm,cjs",
     "clean": "git clean -dfqX",
     "prepack": "npm run build",
     "test": "jest",
@@ -38,6 +49,7 @@
     "prettier": "2.8.8",
     "ts-jest": "29.1.0",
     "ts-node": "10.9.1",
+    "tsup": "^6.7.0",
     "typescript": "5.0.4"
   },
   "repository": {
@@ -54,8 +66,5 @@
   "volta": {
     "node": "18.16.0",
     "npm": "9.6.6"
-  },
-  "dependencies": {
-    "apollo-server-integration-google-cloud-functions-example": "link:/home/ernesto/Projects/oss/apollo-server-integration-google-cloud-functions/example"
   }
 }
