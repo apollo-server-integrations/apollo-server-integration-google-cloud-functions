@@ -1,6 +1,7 @@
 import { ApolloServer } from '@apollo/server';
 import type { Request, Response } from '@google-cloud/functions-framework';
-import { requestProxy, responseProxy, httpGraphQLResponse } from '@as-integrations/google-cloud-functions';
+import { requestProxy, responseProxy, startServer } from '@as-integrations/google-cloud-functions';
+import type {  } from '@as-integrations/google-cloud-functions';
 
 const books = [
   {
@@ -26,15 +27,14 @@ const resolvers = {
   },
 };
 
-const server = new ApolloServer({
+const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
 });
 
-server.start();
+const server = startServer(apolloServer, {});
 
 export async function handler(req: Request, res: Response) {
-  const httpGraphQLRequest = requestProxy(req);
-  const graphQLResponse = await httpGraphQLResponse(server, httpGraphQLRequest);
-  await responseProxy(res, graphQLResponse);
+  const graphQLReponse = await requestProxy({ req, res, server });
+  await responseProxy(res, graphQLReponse);
 }
