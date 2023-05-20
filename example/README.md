@@ -54,7 +54,7 @@ To use the provided deploy script, you need to have the Google Cloud CLI Tool in
 
 ### I got an error `Provided code is not a loadable module` when trying to run the `start` command:
 
-You'll get this error when there is no bundled output on the `/dist` directory. Make sure to run the `build` command before running the `start` command.
+You'll get this error when there is no bundled output in the `/dist` directory. Make sure to run the `build` command before running the `start` command.
 
 ### I got an error `Function <function-name> is not defined in the provided module...` when trying to run/deploy my function:
 
