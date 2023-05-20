@@ -58,7 +58,7 @@ export async function handler(req: Request, res: Response) {
 ## Example project 
 To develop, test and deploy your function, you will need to setup proper tooling to compile your function and its dependencies.
 
-We highly recommend taking a look at the [the project example](/example), which gives you an good starting point and sane defaults on how you can correctly bundle your function and setup scripts for common development tasks.
+We highly recommend taking a look at the [project example](/example), which gives you a good starting point and sane defaults on how you can correctly bundle your function and setup scripts for common development tasks.
 
 >**Note**
 > ### Why do I need to bundle my function?
