@@ -13,7 +13,7 @@ npm install
 Build your project:
 
 ```bash
-npm build
+npm run build
 ```
 
 Test your project on the Google Cloud Framework development server:
