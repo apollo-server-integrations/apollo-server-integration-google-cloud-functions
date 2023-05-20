@@ -18,7 +18,7 @@ npm run build
 
 Test your project on the Google Cloud Framework development server:
 ```bash
-npm run start
+npm start
 ```
 
 
