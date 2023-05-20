@@ -1,42 +1,23 @@
 import { ApolloServer } from '@apollo/server';
-import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
-import { startServerAndCreateGoogleCloudFunctionsHandler } from '@as-integrations/google-cloud-functions';
+import { requestProxy, responseProxy, startServer } from '@as-integrations/google-cloud-functions';
+import { schema } from './schema';
 
-const books = [
-  {
-    title: 'The Awakening',
-    author: 'Kate Chopin',
-  },
-  {
-    title: 'City of Glass',
-    author: 'Paul Auster',
-  },
-];
+import type { Request, Response } from '@google-cloud/functions-framework';
 
-const typeDefs = `#graphql
-  type Book {
-    title: String
-    author: String
-  }
-
-  type Query {
-    books: [Book]
-  }
-`;
-
-const resolvers = {
-  Query: {
-    books: () => books,
-  },
-};
-
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  introspection: true,
-  plugins: [ApolloServerPluginLandingPageLocalDefault({ footer: false })],
+const apolloServer = new ApolloServer({
+  schema,
 });
 
-startServerAndCreateGoogleCloudFunctionsHandler(server, {
-  functionTarget: process.env.FUNCTION_TARGET as string,
+const server = startServer(apolloServer, {
+  context: async (req, res) => {
+    return {
+      req,
+      res,
+    }
+  }
 });
+
+export async function handler(req: Request, res: Response) {
+  const graphQLReponse = await requestProxy({ req, res, server });
+  await responseProxy(res, graphQLReponse);
+}

@@ -17,18 +17,16 @@
     "with-env": "dotenv -e .env --"
   },
   "dependencies": {
-    "@apollo/server": "^4.3.0",
-    "@apollo/utils.withrequired": "^2.0.0",
-    "@as-integrations/google-cloud-functions": "file:..",
-    "@google-cloud/functions-framework": "^3.1.3",
-    "graphql": "^16.6.0"
+    "@apollo/server": "^4.7.1",
+    "@as-integrations/google-cloud-functions": "file:../",
+    "@pothos/core": "^3.30.0",
+    "graphql": "^16.6.0",
+    "graphql-scalars": "^1.21.3"
   },
   "devDependencies": {
-    "@types/node": "18.11.18",
-    "dotenv-cli": "6.0.0",
-    "esbuild": "0.17.5",
-    "rimraf": "3.0.2",
-    "ts-node": "10.9.1",
-    "typescript": "4.9.4"
+    "@google-cloud/functions-framework": "^3.2.0",
+    "@types/node": "20.1.4",
+    "rimraf": "5.0.0",
+    "typescript": "5.0.4"
   }
 }

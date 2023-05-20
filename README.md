@@ -16,13 +16,16 @@ npm install @as-integrations/google-cloud-functions @google-cloud/functions/fram
 ```
 
 ## Usage
-In the root of your project, create an Apollo Server instance and pass it to `startServerAndCreateGoogleCloudFunctionsHandler`, imported from `@as-integrations/google-cloud-functions`:
+In the root of your project, create an Apollo Server instance and pass it to `startServer`, imported from `@as-integrations/google-cloud-functions`. This will start a single instance of the Apollo Server once per container.
 
-Google Cloud Functions requires you to name the function entry point. In this example, we name it `apollo-graphql`. Take note the the name you give to the function is the name you will use when deploying to Google Cloud Functions:
+Afterwards, define and export a named `async` function that will be your Cloud Function handler, and use `requestProxy` and `responseProxy` to compose your function.
 
-```ts
-import { ApolloServer } from "@apollo/server";
-import { startServerAndCreateGoogleCloudFunctionsHandler } from "@as-integrations/google-cloud-functions";
+```typescript
+import { ApolloServer } from '@apollo/server';
+import { requestProxy, responseProxy, startServer } from '@as-integrations/google-cloud-functions';
+import { gql } from 'graphql-tag';
+
+import type { Request, Response } from '@google-cloud/functions-framework';
 
 const resolvers = {
   Query: {
@@ -30,30 +33,33 @@ const resolvers = {
   },
 };
 
-
 const typeDefs = gql`
   type Query {
     hello: String
   }
 `;
 
-const server = new ApolloServer({
-  resolvers,
-  typeDefs,
+const apolloServer = new ApolloServer({
+  schema,
 });
 
-startServerAndCreateGoogleCloudFunctionsHandler(server, { functionTarget: "apollo-graphql" });
+const server = startServer(apolloServer, {
+  context: async (req, res) => {
+    return { req, res }
+  }
+});
+
+export async function handler(req: Request, res: Response) {
+  const graphQLReponse = await requestProxy({ req, res, server });
+  await responseProxy(res, graphQLReponse);
+}
 ```
 
 ## Example project 
-To develop, test and deploy your function, you will need to setup proper tooling to bundle your function and its dependencies.
+To develop, test and deploy your function, you will need to setup proper tooling to compile your function and its dependencies.
 
-We highly recommend taking a look at the [the project example](/example), which gives you an good starting point and sane defaults on how you can correctly bundle your function using `esbuild` and setup scripts for common development tasks.
+We highly recommend taking a look at the [project example](/example), which gives you a good starting point and sane defaults on how you can correctly bundle your function and setup scripts for common development tasks.
 
 >**Note**
 > ### Why do I need to bundle my function?
 > You're probably writing your function in TypeScript, and you're probably using modern syntax from ES Modules like `import` and `export`. Google Cloud Functions Framework for Node.js does not support TypeScript, and it does not understand ES Modules.
->
-> Futhermore, Google Cloud Functions works by having an entry point signature supplied to the function handler. This means that the final bundle of code that gets uploaded to Google Cloud Functions needs to visibly have the function entry point, otherwise it will fail with the error: `Function <function-name> is not defined in the provided module...`.
-
-
