@@ -1,5 +1,8 @@
 import { ApolloServer, type ApolloServerOptions, type BaseContext } from '@apollo/server';
-import { defineIntegrationTestSuite, type CreateServerForIntegrationTestsOptions } from '@apollo/server-integration-testsuite';
+import {
+  defineIntegrationTestSuite,
+  type CreateServerForIntegrationTestsOptions,
+} from '@apollo/server-integration-testsuite';
 import type { Server } from 'http';
 import type { AddressInfo } from 'net';
 import { format } from 'url';
@@ -8,40 +11,40 @@ import { startServerAndCreateGoogleCloudFunctionsHandler } from '..';
 const { getTestServer } = require('@google-cloud/functions-framework/testing');
 
 describe('cloud functions handler', () => {
-  defineIntegrationTestSuite(async function (
-    serverOptions: ApolloServerOptions<BaseContext>,
-    testOptions?: CreateServerForIntegrationTestsOptions,
-  ) {
-    const apolloServer = new ApolloServer({
-      ...serverOptions,
-    });
+  defineIntegrationTestSuite(
+    async function (
+      serverOptions: ApolloServerOptions<BaseContext>,
+      testOptions?: CreateServerForIntegrationTestsOptions,
+    ) {
+      const apolloServer = new ApolloServer({
+        ...serverOptions,
+      });
 
-    startServerAndCreateGoogleCloudFunctionsHandler(
-      apolloServer,
-      {
+      startServerAndCreateGoogleCloudFunctionsHandler(apolloServer, {
         functionTarget: 'apolloServer',
         context: testOptions?.context,
-      }
-    );
+      });
 
-    const testServer = getTestServer('apolloServer');
-    await new Promise<void>((resolve) => {
-      testServer.listen({ port: 0 }, resolve);
-    });
-    
-    return {
-      server: apolloServer,
-      url: urlForHttpServer(testServer),
-      async extraCleanup() {
-        await new Promise<void>((resolve) => {
-          testServer.close(() => resolve());
-        });
-      },
-    }
-  }, {
-    serverIsStartedInBackground: true,
-    noIncrementalDelivery: true,
-  });
+      const testServer = getTestServer('apolloServer');
+      await new Promise<void>((resolve) => {
+        testServer.listen({ port: 0 }, resolve);
+      });
+
+      return {
+        server: apolloServer,
+        url: urlForHttpServer(testServer),
+        async extraCleanup() {
+          await new Promise<void>((resolve) => {
+            testServer.close(() => resolve());
+          });
+        },
+      };
+    },
+    {
+      serverIsStartedInBackground: true,
+      noIncrementalDelivery: true,
+    },
+  );
 });
 
 // Stolen from apollo server integration tests
