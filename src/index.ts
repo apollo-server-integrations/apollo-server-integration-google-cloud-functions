@@ -10,7 +10,7 @@ interface Options<Context extends BaseContext> {
   functionTarget: string;
 }
 
-type GoogleCloudApiHandler = (req: Request, res: Response) => Promise<unknown> | unknown;
+export type GoogleCloudApiHandler = (req: Request, res: Response) => Promise<unknown> | unknown;
 
 const defaultContext: ContextFunction<[], any> = async () => ({});
 
@@ -59,6 +59,10 @@ export function startServerAndCreateGoogleCloudFunctionsHandler<Context extends 
         search: req.url ? parse(req.url).search || '' : '',
       },
     });
+
+    for (const [key, value] of httpGraphQLResponse.headers) {
+      res.setHeader(key, value);
+    }
 
     res.statusCode = httpGraphQLResponse.status || 200;
 
