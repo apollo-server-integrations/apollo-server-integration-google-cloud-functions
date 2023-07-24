@@ -59,7 +59,6 @@ workflows:
           matrix:
             parameters:
               node-version:
-                - "14"
                 - "16"
                 - "18"
       - Prettier
