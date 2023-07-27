@@ -12,7 +12,7 @@ A simple Apollo Server integration for use with Google Cloud Functions
 
 ## Installation
 ```bash
-npm install @as-integrations/google-cloud-functions @google-cloud/functions/framework @apollo/server graphql
+npm install @as-integrations/google-cloud-functions @google-cloud/functions-framework @apollo/server graphql
 ```
 
 ## Usage
