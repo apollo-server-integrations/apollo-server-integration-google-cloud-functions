@@ -1,5 +1,12 @@
 # @as-integrations/google-cloud-functions
 
+## [0.2.0](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/compare/v0.1.5...v0.2.0) (2023-07-27)
+
+
+### 🔖 Features
+
+* Drop support for Node 14 ([#37](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/issues/37)) ([4110c80](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/commit/4110c80ae23f82c94465e547077e7cdbb7cb0564))
+
 ## [0.1.5](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/compare/v0.1.4...v0.1.5) (2023-07-27)
 
 
