@@ -1,5 +1,20 @@
 # @as-integrations/google-cloud-functions
 
+## [0.1.5](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/compare/v0.1.4...v0.1.5) (2023-07-27)
+
+
+### 🐛 Bug Fixes
+
+* Correctly assign response headers from `httpGraphQLResponse` ([#34](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/issues/34)) ([26122aa](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/commit/26122aa4923a63ab6b27e42755034a0515a7d4f7))
+
+
+### 🧹 Miscellaneous
+
+* **deps:** update all non-major dependencies ([749b0fe](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/commit/749b0fe97cdeff666cd2e7003d39609bc59c442f))
+* **deps:** update all non-major dependencies ([#31](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/issues/31)) ([afee96b](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/commit/afee96b067a057e4af4101ca1fdd7f3b9c94e84b))
+* **deps:** update dependency @types/jest to v29.5.0 ([f60493d](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/commit/f60493d4d6e0c03bcff2b6b70ab96bba36ddbed9))
+* **deps:** update dependency prettier to v3 ([d9e32f3](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/commit/d9e32f3296772e5adaa1c16eaa7a3d653927d06d))
+
 ## [0.1.4](https://github.com/apollo-server-integrations/apollo-server-integration-google-cloud-functions/compare/v0.1.3...v0.1.4) (2023-02-06)
 
 
