@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@apollo/server': ^4.3.0
-  '@apollo/utils.withrequired': ^2.0.0
+  '@apollo/utils.withrequired': ^3.0.0
   '@as-integrations/google-cloud-functions': file:..
   '@google-cloud/functions-framework': ^3.1.3
   '@types/node': 18.11.18
@@ -15,7 +15,7 @@ specifiers:
 
 dependencies:
   '@apollo/server': 4.3.3_graphql@16.6.0
-  '@apollo/utils.withrequired': 2.0.0
+  '@apollo/utils.withrequired': 3.0.0
   '@as-integrations/google-cloud-functions': file:.._jhlbo2l6gm6a5fufhtifgt5d3q
   '@google-cloud/functions-framework': 3.1.3
   graphql: 16.6.0
@@ -208,6 +208,11 @@ packages:
   /@apollo/utils.withrequired/2.0.0:
     resolution: {integrity: sha512-+djpTu6AEE/A1etryZs9tmXRyDY6XXGe3G29MS/LB09uHq3pcl3n4Q5lvDTL5JWKuJixrulg5djePLDAooG8dQ==}
     engines: {node: '>=14'}
+    dev: false
+
+  /@apollo/utils.withrequired/3.0.0:
+    resolution: {integrity: sha512-aaxeavfJ+RHboh7c2ofO5HHtQobGX4AgUujXP4CXpREHp9fQ9jPi6K9T1jrAKe7HIipoP0OJ1gd6JamSkFIpvA==}
+    engines: {node: '>=16'}
     dev: false
 
   /@babel/code-frame/7.18.6:
@@ -1779,8 +1784,8 @@ packages:
     resolution: {directory: .., type: directory}
     id: file:..
     name: '@as-integrations/google-cloud-functions'
-    version: 0.1.4
-    engines: {node: '>=14.0'}
+    version: 0.1.5
+    engines: {node: '>=16.0'}
     peerDependencies:
       '@apollo/server': ^4.3.0
       '@google-cloud/functions-framework': ^3.1.3
