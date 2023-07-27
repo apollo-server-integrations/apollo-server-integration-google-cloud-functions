@@ -6,7 +6,7 @@ specifiers:
   '@as-integrations/google-cloud-functions': file:..
   '@google-cloud/functions-framework': ^3.1.3
   '@types/node': 18.11.18
-  dotenv-cli: 6.0.0
+  dotenv-cli: 7.2.1
   esbuild: 0.18.17
   graphql: ^16.6.0
   rimraf: 3.0.2
@@ -22,7 +22,7 @@ dependencies:
 
 devDependencies:
   '@types/node': 18.11.18
-  dotenv-cli: 6.0.0
+  dotenv-cli: 7.2.1
   esbuild: 0.18.17
   rimraf: 3.0.2
   ts-node: 10.9.1_bdgp3l2zgaopogaavxusmetvge
@@ -672,10 +672,8 @@ packages:
     hasBin: true
     dev: true
 
-  /ajv-formats/2.1.1_ajv@8.12.0:
+  /ajv-formats/2.1.1:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
-    peerDependencies:
-      ajv: ^8.0.0
     peerDependenciesMeta:
       ajv:
         optional: true
@@ -778,7 +776,7 @@ packages:
     resolution: {integrity: sha512-ADEHAv2KShH/cDIy2GP+npFz3R6Fu/UCsUO/j4kYA9VqN4yhGdF+Zg6wmjeq6qlUvlaKdrVBwgZuH/w57IsyGQ==}
     dependencies:
       ajv: 8.12.0
-      ajv-formats: 2.1.1_ajv@8.12.0
+      ajv-formats: 2.1.1
       util: 0.12.5
       uuid: 8.3.2
     dev: false
@@ -877,18 +875,18 @@ packages:
     engines: {node: '>=0.3.1'}
     dev: true
 
-  /dotenv-cli/6.0.0:
-    resolution: {integrity: sha512-qXlCOi3UMDhCWFKe0yq5sg3X+pJAz+RQDiFN38AMSbUrnY3uZshSfDJUAge951OS7J9gwLZGfsBlWRSOYz/TRg==}
+  /dotenv-cli/7.2.1:
+    resolution: {integrity: sha512-ODHbGTskqRtXAzZapDPvgNuDVQApu4oKX8lZW7Y0+9hKA6le1ZJlyRS687oU9FXjOVEDU/VFV6zI125HzhM1UQ==}
     hasBin: true
     dependencies:
       cross-spawn: 7.0.3
       dotenv: 16.0.3
-      dotenv-expand: 8.0.3
+      dotenv-expand: 10.0.0
       minimist: 1.2.7
     dev: true
 
-  /dotenv-expand/8.0.3:
-    resolution: {integrity: sha512-SErOMvge0ZUyWd5B0NXMQlDkN+8r+HhVUsxgOO7IoPDOdDRD2JjExpN6y3KnFR66jsJMwSn1pqIivhU5rcJiNg==}
+  /dotenv-expand/10.0.0:
+    resolution: {integrity: sha512-GopVGCpVS1UKH75VKHGuQFqS1Gusej0z4FyQkPdwjil2gNIv+LNsqBlboOzpJFZKVT95GkCyWJbBSdFEFUWI2A==}
     engines: {node: '>=12'}
     dev: true
 
