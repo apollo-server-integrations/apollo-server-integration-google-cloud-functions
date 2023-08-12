@@ -26,7 +26,7 @@
   "devDependencies": {
     "@types/node": "18.11.18",
     "dotenv-cli": "7.2.1",
-    "esbuild": "0.18.18",
+    "esbuild": "0.19.1",
     "rimraf": "5.0.1",
     "ts-node": "10.9.1",
     "typescript": "5.1.6"
