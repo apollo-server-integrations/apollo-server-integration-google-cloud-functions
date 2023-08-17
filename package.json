@@ -9,8 +9,6 @@
   "scripts": {
     "husky": "^8.0.3",
     "prettier": "^2.8.8",
-    "prettier-plugin-tailwindcss": "^0.4.1",
-    "turbo": "^1.10.12",
     "typescript": "^5.1.6"
   },
   "engines": {
