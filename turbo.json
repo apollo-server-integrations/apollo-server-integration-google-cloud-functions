@@ -11,10 +11,15 @@
     "prettier-fix": {
       "outputMode": "hash-only"
     },
-    "test": {},
+    "test": {
+      "cache": true
+    },
     "start": {
       "cache": false,
       "persistent": true
+    },
+    "lint": {
+      "outputs": ["node_modules/.cache/.eslintcache"]
     }
   }
 }

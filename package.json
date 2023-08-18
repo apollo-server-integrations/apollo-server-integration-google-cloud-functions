@@ -11,9 +11,12 @@
     "typescript": "^5.1.6"
   },
   "scripts": {
+    "build": "turbo build",
     "start": "turbo start",
     "prettier-check": "turbo prettier-check",
-    "prettier-fix": "turbo prettier-fix"
+    "prettier-fix": "turbo prettier-fix",
+    "test": "turbo test",
+    "lint": "turbo lint"
   },
   "engines": {
     "node": ">=16.0"
