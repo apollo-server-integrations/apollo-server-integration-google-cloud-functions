@@ -5,17 +5,22 @@
     "name": "Ernesto Resende",
     "email": "dev@ernestoresende.com"
   },
-  "packageManager": "pnpm@8.6.9",
-  "scripts": {
-    "husky": "^8.0.3",
+  "dependencies": {
     "prettier": "^2.8.8",
+    "turbo": "^1.10.12",
     "typescript": "^5.1.6"
+  },
+  "scripts": {
+    "start": "turbo start",
+    "prettier-check": "turbo prettier-check",
+    "prettier-fix": "turbo prettier-fix"
   },
   "engines": {
     "node": ">=16.0"
   },
+  "packageManager": "pnpm@8.6.9",
   "volta": {
     "node": "18.17.1",
-    "npm": "9.8.1"
+    "pnpm": "8.6.9"
   }
 }
