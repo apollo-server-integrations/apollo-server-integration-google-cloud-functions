@@ -15,7 +15,6 @@ commands:
     parameters:
       node-version:
         type: string
-        default: ''
     steps:
       - install-volta
       - checkout
@@ -62,7 +61,8 @@ jobs:
     docker:
     - image: cimg/base:stable
     steps:
-      - setup-node
+      - setup-node:
+          node-version: '18'
       - run: pnpm run prettier-check
 
 workflows:
