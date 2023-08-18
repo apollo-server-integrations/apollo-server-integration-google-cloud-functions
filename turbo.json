@@ -11,9 +11,8 @@
     "prettier-fix": {
       "outputMode": "hash-only"
     },
-    "test": {
-      "cache": true
-    },
+    "test": {},
+    "test:ci": {},
     "start": {
       "cache": false,
       "persistent": true

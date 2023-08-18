@@ -16,6 +16,7 @@
     "prettier-check": "turbo prettier-check",
     "prettier-fix": "turbo prettier-fix",
     "test": "turbo test",
+    "test:ci": "turbo test:ci",
     "lint": "turbo lint"
   },
   "engines": {
