@@ -6,7 +6,7 @@ specifiers:
   '@as-integrations/google-cloud-functions': file:..
   '@google-cloud/functions-framework': ^3.1.3
   '@types/node': 18.11.18
-  dotenv-cli: 7.2.1
+  dotenv-cli: 7.3.0
   esbuild: 0.19.2
   graphql: ^16.6.0
   rimraf: 5.0.1
@@ -22,7 +22,7 @@ dependencies:
 
 devDependencies:
   '@types/node': 18.11.18
-  dotenv-cli: 7.2.1
+  dotenv-cli: 7.3.0
   esbuild: 0.19.2
   rimraf: 5.0.1
   ts-node: 10.9.1_j2tenfqo3ojkwe6mxlyxo4e3lm
@@ -699,8 +699,10 @@ packages:
     hasBin: true
     dev: true
 
-  /ajv-formats/2.1.1:
+  /ajv-formats/2.1.1_ajv@8.12.0:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
+    peerDependencies:
+      ajv: ^8.0.0
     peerDependenciesMeta:
       ajv:
         optional: true
@@ -849,7 +851,7 @@ packages:
     engines: {node: '>=16 <=20'}
     dependencies:
       ajv: 8.12.0
-      ajv-formats: 2.1.1
+      ajv-formats: 2.1.1_ajv@8.12.0
       json-bigint: 1.0.0
       process: 0.11.10
       util: 0.12.5
@@ -957,8 +959,8 @@ packages:
     engines: {node: '>=0.3.1'}
     dev: true
 
-  /dotenv-cli/7.2.1:
-    resolution: {integrity: sha512-ODHbGTskqRtXAzZapDPvgNuDVQApu4oKX8lZW7Y0+9hKA6le1ZJlyRS687oU9FXjOVEDU/VFV6zI125HzhM1UQ==}
+  /dotenv-cli/7.3.0:
+    resolution: {integrity: sha512-314CA4TyK34YEJ6ntBf80eUY+t1XaFLyem1k9P0sX1gn30qThZ5qZr/ZwE318gEnzyYP9yj9HJk6SqwE0upkfw==}
     hasBin: true
     dependencies:
       cross-spawn: 7.0.3
@@ -1971,7 +1973,7 @@ packages:
     resolution: {directory: .., type: directory}
     id: file:..
     name: '@as-integrations/google-cloud-functions'
-    version: 0.2.0
+    version: 0.2.1
     engines: {node: '>=16.0'}
     peerDependencies:
       '@apollo/server': ^4.3.0
