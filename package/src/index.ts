@@ -1,5 +1,4 @@
-import type { ContextFunction } from '@apollo/server';
-import { type ApolloServer, type BaseContext, HeaderMap } from '@apollo/server';
+import { type ApolloServer, type BaseContext, type ContextFunction, HeaderMap } from '@apollo/server';
 import { parse } from 'url';
 import { http } from '@google-cloud/functions-framework';
 
