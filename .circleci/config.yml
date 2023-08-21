@@ -1,11 +1,8 @@
 version: 2.1
 
-orbs:
-  node: circleci/node@5.1.0
-
 commands:
   install-volta:
-    description: Install volta to manage Node/npm versions
+    description: Install volta to manage Node/pnpm versions
     steps:
       - run:
           name: Install volta
@@ -18,17 +15,33 @@ commands:
     parameters:
       node-version:
         type: string
-        default: ''
     steps:
       - install-volta
       - checkout
-      - when:
-          condition: << parameters.node-version >>
-          steps:
-          - run: volta pin node@<< parameters.node-version >>
+      - run: volta install node@<< parameters.node-version >>
+      - run: volta install pnpm@8
       - run: node --version
-      - run: npm --version
-      - node/install-packages
+      - run: pnpm --version
+      - restore_cache:
+          name: Restore pnpm Package Cache
+          keys:
+            - pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
+      # - run:
+      #     name: Install pnpm package manager
+      #     command: |
+      #       corepack enable
+      #       corepack prepare pnpm@latest-8 --activate
+      - run:
+          name: Install Dependencies
+          command: |
+            pnpm install
+      - save_cache:
+          name: Save pnpm Package Cache
+          key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
+          paths:
+            - node_modules
+            - package/node_modules
+            - example/node_modules
 
 jobs:
   NodeJS:
@@ -40,7 +53,7 @@ jobs:
     steps:
       - setup-node:
           node-version: <<parameters.node-version>>
-      - run: npm run test:ci
+      - run: pnpm run test:ci
       - store_test_results:
           path: junit.xml
 
@@ -48,8 +61,9 @@ jobs:
     docker:
     - image: cimg/base:stable
     steps:
-      - setup-node
-      - run: npm run prettier-check
+      - setup-node:
+          node-version: '18'
+      - run: pnpm run prettier-check
 
 workflows:
   Build:

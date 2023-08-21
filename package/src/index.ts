@@ -1,4 +1,4 @@
-import { ApolloServer, BaseContext, ContextFunction, HeaderMap } from '@apollo/server';
+import { type ApolloServer, type BaseContext, type ContextFunction, HeaderMap } from '@apollo/server';
 import { parse } from 'url';
 import { http } from '@google-cloud/functions-framework';
 
@@ -10,8 +10,10 @@ interface Options<Context extends BaseContext> {
   functionTarget: string;
 }
 
+// eslint-disable-next-line
 export type GoogleCloudApiHandler = (req: Request, res: Response) => Promise<unknown> | unknown;
 
+// eslint-disable-next-line
 const defaultContext: ContextFunction<[], any> = async () => ({});
 
 /**

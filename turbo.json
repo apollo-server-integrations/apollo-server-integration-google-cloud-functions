@@ -1,0 +1,24 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "outputs": ["dist"],
+      "dependsOn": ["^build"]
+    },
+    "prettier-check": {
+      "outputMode": "hash-only"
+    },
+    "prettier-fix": {
+      "outputMode": "hash-only"
+    },
+    "test": {},
+    "test:ci": {},
+    "start": {
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "outputs": ["node_modules/.cache/.eslintcache"]
+    }
+  }
+}
