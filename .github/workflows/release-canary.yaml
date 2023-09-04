@@ -1,0 +1,65 @@
+name: Release Canary
+on:
+  push:
+    branches:
+      - canary
+
+permissions:
+  id-token: write
+
+jobs:
+  release-canary:
+    if: ${{ github.repository_owner == 'apollo-server-integrations' }}
+    name: Release Canary
+    runs-on: ubuntu-latest
+    outputs:
+      releaseId: ${{ steps.release-id.outputs.releaseId }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Use PNPM
+        uses: pnpm/action-setup@v2.2.4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install deps (with cache)
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      ## The change made to package.json here is ephemeral, as it will only run in CI
+      - name: Bump version to canary
+        run: node .github/canary-release.js
+
+      - name: Install NPM
+        run: npm i -g npm@9.6.7 # need latest version for provenance
+
+      - name: Authenticate to npm and publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          pnpm build
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          cd ./package
+          npm publish --provenance --access public --ignore-scripts --tag canary
