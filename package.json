@@ -32,7 +32,7 @@
     "@apollo/utils.withrequired": "3.0.0",
     "@google-cloud/functions-framework": "3.3.0",
     "@types/jest": "29.5.12",
-    "@types/node": "16.18.80",
+    "@types/node": "16.18.82",
     "jest": "29.7.0",
     "jest-junit": "16.0.0",
     "prettier": "3.2.5",
@@ -52,7 +52,7 @@
     "node": ">=16.0"
   },
   "volta": {
-    "node": "20.11.0",
+    "node": "20.11.1",
     "npm": "10.4.0"
   }
 }
