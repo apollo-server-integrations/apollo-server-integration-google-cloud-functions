@@ -25,10 +25,10 @@
   },
   "devDependencies": {
     "@types/node": "18.11.18",
-    "dotenv-cli": "7.3.0",
-    "esbuild": "0.20.1",
+    "dotenv-cli": "7.4.1",
+    "esbuild": "0.20.2",
     "rimraf": "5.0.5",
     "ts-node": "10.9.2",
-    "typescript": "5.3.3"
+    "typescript": "5.4.3"
   }
 }
