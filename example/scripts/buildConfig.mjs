@@ -48,7 +48,7 @@ const commonConfig = {
   /**
    * Match this to the --runtime flag during deployment.
    */
-  target: 'node16',
+  target: 'node20',
 
   /**
    * When in development mode, this log level will print bundle changes in the terminal.
