@@ -79,3 +79,10 @@ You'll get this error when there is no bundled output on the `/dist` directory. 
 This will usually happen when the bundled code does not include `@as-integrations/google-cloud-functions` source code on the final bundle. **It is important to have the source-code for the integration bundled *within* your function** because of how Google Cloud Functions reads the function entry point.
 
 In `scripts/buildConfig.mjs`, make sure that the `external` array **does not** include `@as-integrations/google-cloud-functions`. Every other direct dependency that can be normally resolved by package.json should be included on the `external` array.
+
+### I got an error `Provided source directory does not have file [package.json]…`
+
+The quick workaround for this is to add a soft link in the `dist` directory to the `package.json` file here (in the `example` directory).
+```
+$ ln package.json dist/package.json
+```
