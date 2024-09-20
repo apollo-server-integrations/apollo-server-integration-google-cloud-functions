@@ -12,23 +12,24 @@
     "build": "npm run with-env node scripts/build.mjs",
     "watch": "npm run with-env node scripts/watch.mjs",
     "start": "dotenv -e .env -- functions-framework --source=./dist",
-    "deploy": "gcloud functions deploy $(grep FUNCTION_TARGET .env | cut -d '=' -f2) --gen2 --runtime nodejs16 --trigger-http --allow-unauthenticated --entry-point=$(grep FUNCTION_TARGET .env | cut -d '=' -f2) --source=./dist --region=us-central1",
+    "deploy": "gcloud functions deploy $(grep FUNCTION_TARGET .env | cut -d '=' -f2) --gen2 --runtime nodejs20 --trigger-http --allow-unauthenticated --entry-point=$(grep FUNCTION_TARGET .env | cut -d '=' -f2) --source=./dist --region=us-central1",
     "clean": "rimraf dist",
-    "with-env": "dotenv -e .env --"
+    "with-env": "dotenv -e .env --",
+    "gcp-build": ""
   },
   "dependencies": {
-    "@apollo/server": "^4.3.0",
+    "@apollo/server": "^4.11.0",
     "@apollo/utils.withrequired": "^3.0.0",
-    "@as-integrations/google-cloud-functions": "file:..",
-    "@google-cloud/functions-framework": "^3.1.3",
-    "graphql": "^16.6.0"
+    "@as-integrations/google-cloud-functions": "^0.1.4",
+    "@google-cloud/functions-framework": "^3.4.2",
+    "graphql": "^16.9.0"
   },
   "devDependencies": {
-    "@types/node": "18.11.18",
-    "dotenv-cli": "7.3.0",
-    "esbuild": "0.20.1",
-    "rimraf": "5.0.5",
+    "@types/node": "22.5.5",
+    "dotenv-cli": "7.4.2",
+    "esbuild": "0.23.1",
+    "rimraf": "6.0.1",
     "ts-node": "10.9.2",
-    "typescript": "5.3.3"
+    "typescript": "5.6.2"
   }
 }
