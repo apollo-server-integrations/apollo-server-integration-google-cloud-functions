@@ -6,11 +6,11 @@ settings:
 
 devDependencies:
   '@apollo/server':
-    specifier: 4.11.1
-    version: 4.11.1(graphql@16.7.1)
+    specifier: 4.11.2
+    version: 4.11.2(graphql@16.7.1)
   '@apollo/server-integration-testsuite':
-    specifier: 4.11.1
-    version: 4.11.1(@jest/globals@29.7.0)(graphql@16.7.1)(jest@29.7.0)
+    specifier: 4.11.2
+    version: 4.11.2(@jest/globals@29.7.0)(graphql@16.7.1)(jest@29.7.0)
   '@apollo/utils.withrequired':
     specifier: 3.0.0
     version: 3.0.0
@@ -125,8 +125,8 @@ packages:
       graphql: 16.7.1
     dev: true
 
-  /@apollo/server-integration-testsuite@4.11.1(@jest/globals@29.7.0)(graphql@16.7.1)(jest@29.7.0):
-    resolution: {integrity: sha512-oFnmTOSVpa5eThMjJJC2AMSyXjOChLMMhe/Efm9scJn7o5szEixz0MBy9dhg/vMk/SFrqYG+Ym+IeoSvlJEV9Q==}
+  /@apollo/server-integration-testsuite@4.11.2(@jest/globals@29.7.0)(graphql@16.7.1)(jest@29.7.0):
+    resolution: {integrity: sha512-ebJCT/09TAkg+NFfZEp70Wuw2o8F/Rg8uh3Y+Zz1zfrv2Yt11QVxOobXTgg40NiXsuUmmB8s9dQjG4Fz722ymw==}
     engines: {node: '>=14.16.0'}
     peerDependencies:
       '@jest/globals': 28.x || 29.x
@@ -135,20 +135,20 @@ packages:
     dependencies:
       '@apollo/cache-control-types': 1.0.3(graphql@16.7.1)
       '@apollo/client': 3.7.17(graphql@16.7.1)
-      '@apollo/server': 4.11.1(graphql@16.7.1)
+      '@apollo/server': 4.11.2(graphql@16.7.1)
       '@apollo/usage-reporting-protobuf': 4.1.1
       '@apollo/utils.createhash': 2.0.1
       '@apollo/utils.keyvaluecache': 2.1.1
       '@jest/globals': 29.7.0
       express: 4.21.1
       graphql: 16.7.1
-      graphql-http: 1.22.0(graphql@16.7.1)
+      graphql-http: 1.22.1(graphql@16.7.1)
       graphql-tag: 2.12.6(graphql@16.7.1)
       jest: 29.7.0(@types/node@16.18.116)(ts-node@10.9.2)
       loglevel: 1.8.1
       node-fetch: 2.6.12
-      superagent: 8.0.9
-      supertest: 6.3.3
+      superagent: 10.1.1
+      supertest: 7.0.0
     transitivePeerDependencies:
       - encoding
       - graphql-ws
@@ -158,8 +158,8 @@ packages:
       - supports-color
     dev: true
 
-  /@apollo/server@4.11.1(graphql@16.7.1):
-    resolution: {integrity: sha512-L9//UraWRTMjMdROrnOWOcPwS5j1gRSiOTu8+214KF8jn0g1J2Iin+UKvjvQRi4O00P5kyFoFhg5QTJ8zYsCOQ==}
+  /@apollo/server@4.11.2(graphql@16.7.1):
+    resolution: {integrity: sha512-WUTHY7DDek8xAMn4Woa9Bl8duQUDzRYQkosX/d1DtCsBWESZyApR7ndnI5d6+W4KSTtqBHhJFkusEI7CWuIJXg==}
     engines: {node: '>=14.16.0'}
     peerDependencies:
       graphql: ^16.6.0
@@ -2168,13 +2168,12 @@ packages:
       mime-types: 2.1.35
     dev: true
 
-  /formidable@2.1.2:
-    resolution: {integrity: sha512-CM3GuJ57US06mlpQ47YcunuUZ9jpm8Vx+P2CGt2j7HpgkKZO/DJYQ0Bobim8G6PFQmK5lOqOOdUXboU+h73A4g==}
+  /formidable@3.5.2:
+    resolution: {integrity: sha512-Jqc1btCy3QzRbJaICGwKcBfGWuLADRerLzDqi2NwSt/UkXLsHJw2TVResiaoBufHVHy9aSgClOHCeJsSsFLTbg==}
     dependencies:
       dezalgo: 1.0.4
-      hexoid: 1.0.0
+      hexoid: 2.0.0
       once: 1.4.0
-      qs: 6.11.2
     dev: true
 
   /forwarded@0.2.0:
@@ -2220,7 +2219,7 @@ packages:
   /get-intrinsic@1.2.1:
     resolution: {integrity: sha512-2DcsyfABl+gVHEfCOaTrWgyt+tb6MSEGmKq+kI5HwLbIYgjgmMcV8KQ41uaKz1xxUcn9tJtgFbQUEVcEbd0FYw==}
     dependencies:
-      function-bind: 1.1.1
+      function-bind: 1.1.2
       has: 1.0.3
       has-proto: 1.0.1
       has-symbols: 1.0.3
@@ -2273,8 +2272,8 @@ packages:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
     dev: true
 
-  /graphql-http@1.22.0(graphql@16.7.1):
-    resolution: {integrity: sha512-9RBUlGJWBFqz9LwfpmAbjJL/8j/HCNkZwPBU5+Bfmwez+1Ay43DocMNQYpIWsWqH0Ftv6PTNAh2aRnnMCBJgLw==}
+  /graphql-http@1.22.1(graphql@16.7.1):
+    resolution: {integrity: sha512-4Jor+LRbA7SfSaw7dfDUs2UBzvWg3cKrykfHRgKsOIvQaLuf+QOcG2t3Mx5N9GzSNJcuqMqJWz0ta5+BryEmXg==}
     engines: {node: '>=12'}
     peerDependencies:
       graphql: '>=0.11 <=16'
@@ -2334,7 +2333,7 @@ packages:
     resolution: {integrity: sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==}
     engines: {node: '>= 0.4.0'}
     dependencies:
-      function-bind: 1.1.1
+      function-bind: 1.1.2
     dev: true
 
   /hasown@2.0.2:
@@ -2344,8 +2343,8 @@ packages:
       function-bind: 1.1.2
     dev: true
 
-  /hexoid@1.0.0:
-    resolution: {integrity: sha512-QFLV0taWQOZtvIRIAdBChesmogZrtuXvVWsFHZTk2SU+anspqZ2vMnoLg7IE1+Uk16N19APic1BuF8bC8c2m5g==}
+  /hexoid@2.0.0:
+    resolution: {integrity: sha512-qlspKUK7IlSQv2o+5I7yhUd7TxlOG2Vr5LTa3ve2XSNVKAL/n/u/7KLvKmFNimomDIKvZFXWHv0T12mv7rT8Aw==}
     engines: {node: '>=8'}
     dev: true
 
@@ -3239,10 +3238,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /object-inspect@1.12.3:
-    resolution: {integrity: sha512-geUvdk7c+eizMNUDkRpW1wJwgfOiOeHbxBR/hLXK1aT6zmVSO0jsQcs7fj6MGw89jC/cjGfLcNOrtMYtGqm81g==}
-    dev: true
-
   /object-inspect@1.13.2:
     resolution: {integrity: sha512-IRZSRuzJiynemAXPYtPe5BoI/RESNYR7TYm50MC5Mqbd3Jmw5y790sErYw3V6SryFJD64b74qQQs9wn5Bg/k3g==}
     engines: {node: '>= 0.4'}
@@ -3421,14 +3416,7 @@ packages:
     resolution: {integrity: sha512-MvjoMCJwEarSbUYk5O+nmoSzSutSsTwF85zcHPQ9OrlFoZOYIjaqBAJIqIXjptyD5vThxGq52Xu/MaJzRkIk4Q==}
     engines: {node: '>=0.6'}
     dependencies:
-      side-channel: 1.0.4
-    dev: true
-
-  /qs@6.11.2:
-    resolution: {integrity: sha512-tDNIz22aBzCDxLtVH++VnTfzxlfeK5CbqohpSqpJgj1Wg/cQbStNAz3NuqCs5vV+pjBsK4x4pN9HlVh7rcYRiA==}
-    engines: {node: '>=0.6'}
-    dependencies:
-      side-channel: 1.0.4
+      side-channel: 1.0.6
     dev: true
 
   /qs@6.13.0:
@@ -3670,14 +3658,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /side-channel@1.0.4:
-    resolution: {integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw==}
-    dependencies:
-      call-bind: 1.0.2
-      get-intrinsic: 1.2.1
-      object-inspect: 1.12.3
-    dev: true
-
   /side-channel@1.0.6:
     resolution: {integrity: sha512-fDW/EZ6Q9RiO8eFG8Hj+7u/oW+XrPTIChwCOM2+th2A6OblDtYYIpve9m+KvI9Z4C9qSEXlaGR6bTEYHReuglA==}
     engines: {node: '>= 0.4'}
@@ -3790,31 +3770,46 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /superagent@8.0.9:
-    resolution: {integrity: sha512-4C7Bh5pyHTvU33KpZgwrNKh/VQnvgtCSqPRfJAUdmrtSYePVzVg4E4OzsrbkhJj9O7SO6Bnv75K/F8XVZT8YHA==}
-    engines: {node: '>=6.4.0 <13 || >=14'}
-    deprecated: Please upgrade to v9.0.0+ as we have fixed a public vulnerability with formidable dependency. Note that v9.0.0+ requires Node.js v14.18.0+. See https://github.com/ladjs/superagent/pull/1800 for insight. This project is supported and maintained by the team at Forward Email @ https://forwardemail.net
+  /superagent@10.1.1:
+    resolution: {integrity: sha512-9pIwrHrOj3uAnqg9gDlW7EA2xv+N5au/dSM0kM22HTqmUu8jBxNT+8uA7tA3UoCnmiqzpSbu8rasIUZvbyamMQ==}
+    engines: {node: '>=14.18.0'}
     dependencies:
       component-emitter: 1.3.0
       cookiejar: 2.1.4
       debug: 4.3.4
       fast-safe-stringify: 2.1.1
       form-data: 4.0.0
-      formidable: 2.1.2
+      formidable: 3.5.2
       methods: 1.1.2
       mime: 2.6.0
-      qs: 6.11.2
-      semver: 7.6.3
+      qs: 6.13.0
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /supertest@6.3.3:
-    resolution: {integrity: sha512-EMCG6G8gDu5qEqRQ3JjjPs6+FYT1a7Hv5ApHvtSghmOFJYtsU5S+pSb6Y2EUeCEY3CmEL3mmQ8YWlPOzQomabA==}
-    engines: {node: '>=6.4.0'}
+  /superagent@9.0.2:
+    resolution: {integrity: sha512-xuW7dzkUpcJq7QnhOsnNUgtYp3xRwpt2F7abdRYIpCsAt0hhUqia0EdxyXZQQpNmGtsCzYHryaKSV3q3GJnq7w==}
+    engines: {node: '>=14.18.0'}
+    dependencies:
+      component-emitter: 1.3.0
+      cookiejar: 2.1.4
+      debug: 4.3.4
+      fast-safe-stringify: 2.1.1
+      form-data: 4.0.0
+      formidable: 3.5.2
+      methods: 1.1.2
+      mime: 2.6.0
+      qs: 6.13.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /supertest@7.0.0:
+    resolution: {integrity: sha512-qlsr7fIC0lSddmA3tzojvzubYxvlGtzumcdHgPwbFWMISQwL22MhM2Y3LNt+6w9Yyx7559VW5ab70dgphm8qQA==}
+    engines: {node: '>=14.18.0'}
     dependencies:
       methods: 1.1.2
-      superagent: 8.0.9
+      superagent: 9.0.2
     transitivePeerDependencies:
       - supports-color
     dev: true
