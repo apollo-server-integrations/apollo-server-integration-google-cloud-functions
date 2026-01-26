@@ -49,6 +49,10 @@ jobs:
   publish_npm:
     name: Publish to npm
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
     needs: [release-pr]
     if: needs.release-pr.outputs.release_created
     steps:
@@ -56,13 +60,9 @@ jobs:
       - run: corepack enable
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 24
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
-      - name: Config npm
-        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish to npm
         run: pnpm publish --access public --no-git-checks
