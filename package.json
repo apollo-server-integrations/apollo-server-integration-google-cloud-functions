@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@apollo/server": "4.11.2",
-    "@apollo/server-integration-testsuite": "4.11.2",
+    "@apollo/server-integration-testsuite": "5.5.1",
     "@apollo/utils.withrequired": "3.0.0",
     "@google-cloud/functions-framework": "3.4.2",
     "@types/jest": "29.5.14",
